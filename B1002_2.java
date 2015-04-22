@@ -1,30 +1,27 @@
-import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class B1002_1 {
+public class B1002_2 {
 
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     String num = input.next();
-    BigDecimal number = new BigDecimal(num) ;
     
-    int sum = sum(number);
+    
+    int sum = sum(num);
     output(sum);
     
   }
   
-  public static int sum(BigDecimal number) {
+  public static int sum(String number) {
 	  int sum = 0;
-	  BigDecimal num1 = new BigDecimal(1);
-	  BigDecimal num10 = new BigDecimal(10);	  
-	    
-	  while (number.compareTo(num1) >= 0)
+	  
+	  for (int i = 0; i < number.length(); i ++)
 	  {
-		  BigDecimal getNumber = number.remainder(num10); 
-		  sum += getNumber.intValue();
-		  number = number.divide(num10);
+		  Character charNumber = number.charAt(i);
+		  int num = Integer.parseInt(charNumber.toString());
+		  sum += num;
 	  }
-	    
+	  	    
 	  return sum;  
   }
   
